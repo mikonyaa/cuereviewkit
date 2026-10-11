@@ -1,0 +1,79 @@
+[
+  {
+    "prefix": "case-01",
+    "sourceCount": 240,
+    "translationCount": 140,
+    "grouping": "all 1:1 for shared intervals; extra source intervals unmatched",
+    "unmatchedSourceCount": 100
+  },
+  {
+    "prefix": "case-02",
+    "sourceCount": 140,
+    "translationCount": 140,
+    "grouping": "all 1:1 for shared intervals; extra source intervals unmatched",
+    "unmatchedSourceCount": 0,
+    "graphemesSource0": 5
+  },
+  {
+    "prefix": "case-03",
+    "sourceCount": 140,
+    "translationCount": 140,
+    "grouping": "all 1:1 for shared intervals; extra source intervals unmatched",
+    "unmatchedSourceCount": 0
+  },
+  {
+    "prefix": "case-04",
+    "sourceCount": 140,
+    "translationCount": 140,
+    "grouping": "all 1:1 for shared intervals; extra source intervals unmatched",
+    "unmatchedSourceCount": 0,
+    "invalidTranslationOrdinal": 3
+  },
+  {
+    "prefix": "case-05",
+    "sourceCount": 140,
+    "translationCount": 140,
+    "grouping": "all 1:1 for shared intervals; extra source intervals unmatched",
+    "unmatchedSourceCount": 0,
+    "invalidTranslationOrdinal": 4
+  },
+  {
+    "prefix": "case-06",
+    "sourceCount": 140,
+    "translationCount": 140,
+    "grouping": "all 1:1 for shared intervals; extra source intervals unmatched",
+    "unmatchedSourceCount": 0,
+    "fastTranslationOrdinal": 5
+  },
+  {
+    "prefix": "case-07",
+    "sourceCount": 140,
+    "translationCount": 140,
+    "grouping": "all 1:1 for shared intervals; extra source intervals unmatched",
+    "unmatchedSourceCount": 0,
+    "numberUncertaintyOrdinal": 6
+  },
+  {
+    "prefix": "case-08",
+    "sourceCount": 140,
+    "translationCount": 140,
+    "grouping": "all 1:1 for shared intervals; extra source intervals unmatched",
+    "unmatchedSourceCount": 0,
+    "shortOrdinal": 7
+  },
+  {
+    "prefix": "case-09",
+    "sourceCount": 140,
+    "translationCount": 140,
+    "grouping": "all 1:1 for shared intervals; extra source intervals unmatched",
+    "unmatchedSourceCount": 0
+  },
+  {
+    "prefix": "case-10",
+    "sourceCount": 140,
+    "translationCount": 140,
+    "grouping": "all 1:1 for shared intervals; extra source intervals unmatched",
+    "unmatchedSourceCount": 0,
+    "partialOrdinal": 9
+  }
+]

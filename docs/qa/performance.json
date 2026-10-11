@@ -1,0 +1,46 @@
+{
+  "machine": "Apple M4\n17179869184",
+  "node": "v24.21.0",
+  "browser": "156.0.8078.4",
+  "method": "Single local run; main-thread interval counts/gaps and non-standard Chromium performance.memory approximate JS heap only. Not total browser/worker RAM or a universal benchmark.",
+  "results": [
+    {
+      "cuesPerTrack": 5000,
+      "dense": false,
+      "trackBytes": 313893,
+      "elapsedMs": 853,
+      "giantViewMs": null,
+      "materializedCueBlocks": null,
+      "ticks": 52,
+      "maxGapMs": 63.30000000447035,
+      "approximateMainThreadJsHeapBytes": 16694900,
+      "incomplete": false
+    },
+    {
+      "cuesPerTrack": 20000,
+      "dense": false,
+      "trackBytes": 1268894,
+      "elapsedMs": 1351,
+      "giantViewMs": null,
+      "materializedCueBlocks": null,
+      "ticks": 77,
+      "maxGapMs": 120.39999999850988,
+      "approximateMainThreadJsHeapBytes": 73187996,
+      "incomplete": false
+    },
+    {
+      "cuesPerTrack": 20000,
+      "dense": true,
+      "trackBytes": 1268894,
+      "elapsedMs": 1842,
+      "giantViewMs": 102,
+      "materializedCueBlocks": 60,
+      "ticks": 109,
+      "maxGapMs": 137.80000000447035,
+      "approximateMainThreadJsHeapBytes": 102616184,
+      "incomplete": true
+    }
+  ],
+  "cancelledHeavyWorker": true,
+  "cancelledKeptOriginal": "Translation · working copytranslation.srt239 cues · 0 edited · original SHA ea3bd057Replace translation"
+}

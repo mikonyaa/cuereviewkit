@@ -1,0 +1,4 @@
+90
+00:00:01,000 --> 00:00:03,000
+Toma el tranvía de la mañana y trae exactamente 100 billetes.
+

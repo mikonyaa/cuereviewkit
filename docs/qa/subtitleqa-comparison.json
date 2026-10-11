@@ -1,0 +1,62 @@
+{
+  "tool": "SubtitleQA",
+  "commit": "e9fddd876878e1fe16277511a608ba3fc3088454",
+  "scriptSha256": "06c2385e60f871ffc57d63950c31823d08ce0267e8c45e583ee04981e3c39513",
+  "method": "Executed original parser and matcher function ASTs verbatim; omitted Streamlit UI and other unrelated functions. Actual chardet dependency; no stubs. This is a core comparison, not a full-product audit.",
+  "sourceCues": [
+    {
+      "start": 1.0,
+      "end": 2.0,
+      "text": "Please take the morning tram.",
+      "type": "dialogue"
+    },
+    {
+      "start": 2.0,
+      "end": 3.0,
+      "text": "Bring exactly 100 tickets with you.",
+      "type": "dialogue"
+    },
+    {
+      "start": 5.0,
+      "end": 6.0,
+      "text": "Meet us at the main entrance.",
+      "type": "dialogue"
+    }
+  ],
+  "translationCues": [
+    {
+      "start": 1.0,
+      "end": 3.0,
+      "text": "Toma el tranvía de la mañana y trae exactamente 100 billetes.",
+      "type": "dialogue"
+    }
+  ],
+  "matches": [
+    {
+      "spanish": {
+        "start": 1.0,
+        "end": 3.0,
+        "text": "Toma el tranvía de la mañana y trae exactamente 100 billetes.",
+        "type": "dialogue"
+      },
+      "english": [
+        {
+          "start": 1.0,
+          "end": 2.0,
+          "text": "Please take the morning tram.",
+          "type": "dialogue"
+        },
+        {
+          "start": 2.0,
+          "end": 3.0,
+          "text": "Bring exactly 100 tickets with you.",
+          "type": "dialogue"
+        }
+      ],
+      "similarity": 0.3492063492063492
+    }
+  ],
+  "unmatchedSourceExplicitInReturn": false,
+  "python": "3.13.7",
+  "chardet": "7.6.0"
+}

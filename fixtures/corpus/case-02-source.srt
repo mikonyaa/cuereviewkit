@@ -1,0 +1,560 @@
+1
+00:00:01,000 --> 00:00:03,500
+你好 世界
+
+2
+00:00:04,000 --> 00:00:06,500
+Please keep the aisle clear.
+
+3
+00:00:07,000 --> 00:00:09,500
+The next stop is the riverside.
+
+4
+00:00:10,000 --> 00:00:12,500
+Our guide will meet us there.
+
+5
+00:00:13,000 --> 00:00:15,500
+Bring your ticket to the entrance.
+
+6
+00:00:16,000 --> 00:00:18,500
+The doors close after the signal.
+
+7
+00:00:19,000 --> 00:00:21,500
+The tram leaves from the square.
+
+8
+00:00:22,000 --> 00:00:24,500
+Please keep the aisle clear.
+
+9
+00:00:25,000 --> 00:00:27,500
+The next stop is the riverside.
+
+10
+00:00:28,000 --> 00:00:30,500
+Our guide will meet us there.
+
+11
+00:00:31,000 --> 00:00:33,500
+Bring your ticket to the entrance.
+
+12
+00:00:34,000 --> 00:00:36,500
+The doors close after the signal.
+
+13
+00:00:37,000 --> 00:00:39,500
+The tram leaves from the square.
+
+14
+00:00:40,000 --> 00:00:42,500
+Please keep the aisle clear.
+
+15
+00:00:43,000 --> 00:00:45,500
+The next stop is the riverside.
+
+16
+00:00:46,000 --> 00:00:48,500
+Our guide will meet us there.
+
+17
+00:00:49,000 --> 00:00:51,500
+Bring your ticket to the entrance.
+
+18
+00:00:52,000 --> 00:00:54,500
+The doors close after the signal.
+
+19
+00:00:55,000 --> 00:00:57,500
+The tram leaves from the square.
+
+20
+00:00:58,000 --> 00:01:00,500
+Please keep the aisle clear.
+
+21
+00:01:01,000 --> 00:01:03,500
+The next stop is the riverside.
+
+22
+00:01:04,000 --> 00:01:06,500
+Our guide will meet us there.
+
+23
+00:01:07,000 --> 00:01:09,500
+Bring your ticket to the entrance.
+
+24
+00:01:10,000 --> 00:01:12,500
+The doors close after the signal.
+
+25
+00:01:13,000 --> 00:01:15,500
+The tram leaves from the square.
+
+26
+00:01:16,000 --> 00:01:18,500
+Please keep the aisle clear.
+
+27
+00:01:19,000 --> 00:01:21,500
+The next stop is the riverside.
+
+28
+00:01:22,000 --> 00:01:24,500
+Our guide will meet us there.
+
+29
+00:01:25,000 --> 00:01:27,500
+Bring your ticket to the entrance.
+
+30
+00:01:28,000 --> 00:01:30,500
+The doors close after the signal.
+
+31
+00:01:31,000 --> 00:01:33,500
+The tram leaves from the square.
+
+32
+00:01:34,000 --> 00:01:36,500
+Please keep the aisle clear.
+
+33
+00:01:37,000 --> 00:01:39,500
+The next stop is the riverside.
+
+34
+00:01:40,000 --> 00:01:42,500
+Our guide will meet us there.
+
+35
+00:01:43,000 --> 00:01:45,500
+Bring your ticket to the entrance.
+
+36
+00:01:46,000 --> 00:01:48,500
+The doors close after the signal.
+
+37
+00:01:49,000 --> 00:01:51,500
+The tram leaves from the square.
+
+38
+00:01:52,000 --> 00:01:54,500
+Please keep the aisle clear.
+
+39
+00:01:55,000 --> 00:01:57,500
+The next stop is the riverside.
+
+40
+00:01:58,000 --> 00:02:00,500
+Our guide will meet us there.
+
+41
+00:02:01,000 --> 00:02:03,500
+Bring your ticket to the entrance.
+
+42
+00:02:04,000 --> 00:02:06,500
+The doors close after the signal.
+
+43
+00:02:07,000 --> 00:02:09,500
+The tram leaves from the square.
+
+44
+00:02:10,000 --> 00:02:12,500
+Please keep the aisle clear.
+
+45
+00:02:13,000 --> 00:02:15,500
+The next stop is the riverside.
+
+46
+00:02:16,000 --> 00:02:18,500
+Our guide will meet us there.
+
+47
+00:02:19,000 --> 00:02:21,500
+Bring your ticket to the entrance.
+
+48
+00:02:22,000 --> 00:02:24,500
+The doors close after the signal.
+
+49
+00:02:25,000 --> 00:02:27,500
+The tram leaves from the square.
+
+50
+00:02:28,000 --> 00:02:30,500
+Please keep the aisle clear.
+
+51
+00:02:31,000 --> 00:02:33,500
+The next stop is the riverside.
+
+52
+00:02:34,000 --> 00:02:36,500
+Our guide will meet us there.
+
+53
+00:02:37,000 --> 00:02:39,500
+Bring your ticket to the entrance.
+
+54
+00:02:40,000 --> 00:02:42,500
+The doors close after the signal.
+
+55
+00:02:43,000 --> 00:02:45,500
+The tram leaves from the square.
+
+56
+00:02:46,000 --> 00:02:48,500
+Please keep the aisle clear.
+
+57
+00:02:49,000 --> 00:02:51,500
+The next stop is the riverside.
+
+58
+00:02:52,000 --> 00:02:54,500
+Our guide will meet us there.
+
+59
+00:02:55,000 --> 00:02:57,500
+Bring your ticket to the entrance.
+
+60
+00:02:58,000 --> 00:03:00,500
+The doors close after the signal.
+
+61
+00:03:01,000 --> 00:03:03,500
+The tram leaves from the square.
+
+62
+00:03:04,000 --> 00:03:06,500
+Please keep the aisle clear.
+
+63
+00:03:07,000 --> 00:03:09,500
+The next stop is the riverside.
+
+64
+00:03:10,000 --> 00:03:12,500
+Our guide will meet us there.
+
+65
+00:03:13,000 --> 00:03:15,500
+Bring your ticket to the entrance.
+
+66
+00:03:16,000 --> 00:03:18,500
+The doors close after the signal.
+
+67
+00:03:19,000 --> 00:03:21,500
+The tram leaves from the square.
+
+68
+00:03:22,000 --> 00:03:24,500
+Please keep the aisle clear.
+
+69
+00:03:25,000 --> 00:03:27,500
+The next stop is the riverside.
+
+70
+00:03:28,000 --> 00:03:30,500
+Our guide will meet us there.
+
+71
+00:03:31,000 --> 00:03:33,500
+Bring your ticket to the entrance.
+
+72
+00:03:34,000 --> 00:03:36,500
+The doors close after the signal.
+
+73
+00:03:37,000 --> 00:03:39,500
+The tram leaves from the square.
+
+74
+00:03:40,000 --> 00:03:42,500
+Please keep the aisle clear.
+
+75
+00:03:43,000 --> 00:03:45,500
+The next stop is the riverside.
+
+76
+00:03:46,000 --> 00:03:48,500
+Our guide will meet us there.
+
+77
+00:03:49,000 --> 00:03:51,500
+Bring your ticket to the entrance.
+
+78
+00:03:52,000 --> 00:03:54,500
+The doors close after the signal.
+
+79
+00:03:55,000 --> 00:03:57,500
+The tram leaves from the square.
+
+80
+00:03:58,000 --> 00:04:00,500
+Please keep the aisle clear.
+
+81
+00:04:01,000 --> 00:04:03,500
+The next stop is the riverside.
+
+82
+00:04:04,000 --> 00:04:06,500
+Our guide will meet us there.
+
+83
+00:04:07,000 --> 00:04:09,500
+Bring your ticket to the entrance.
+
+84
+00:04:10,000 --> 00:04:12,500
+The doors close after the signal.
+
+85
+00:04:13,000 --> 00:04:15,500
+The tram leaves from the square.
+
+86
+00:04:16,000 --> 00:04:18,500
+Please keep the aisle clear.
+
+87
+00:04:19,000 --> 00:04:21,500
+The next stop is the riverside.
+
+88
+00:04:22,000 --> 00:04:24,500
+Our guide will meet us there.
+
+89
+00:04:25,000 --> 00:04:27,500
+Bring your ticket to the entrance.
+
+90
+00:04:28,000 --> 00:04:30,500
+The doors close after the signal.
+
+91
+00:04:31,000 --> 00:04:33,500
+The tram leaves from the square.
+
+92
+00:04:34,000 --> 00:04:36,500
+Please keep the aisle clear.
+
+93
+00:04:37,000 --> 00:04:39,500
+The next stop is the riverside.
+
+94
+00:04:40,000 --> 00:04:42,500
+Our guide will meet us there.
+
+95
+00:04:43,000 --> 00:04:45,500
+Bring your ticket to the entrance.
+
+96
+00:04:46,000 --> 00:04:48,500
+The doors close after the signal.
+
+97
+00:04:49,000 --> 00:04:51,500
+The tram leaves from the square.
+
+98
+00:04:52,000 --> 00:04:54,500
+Please keep the aisle clear.
+
+99
+00:04:55,000 --> 00:04:57,500
+The next stop is the riverside.
+
+100
+00:04:58,000 --> 00:05:00,500
+Our guide will meet us there.
+
+101
+00:05:01,000 --> 00:05:03,500
+Bring your ticket to the entrance.
+
+102
+00:05:04,000 --> 00:05:06,500
+The doors close after the signal.
+
+103
+00:05:07,000 --> 00:05:09,500
+The tram leaves from the square.
+
+104
+00:05:10,000 --> 00:05:12,500
+Please keep the aisle clear.
+
+105
+00:05:13,000 --> 00:05:15,500
+The next stop is the riverside.
+
+106
+00:05:16,000 --> 00:05:18,500
+Our guide will meet us there.
+
+107
+00:05:19,000 --> 00:05:21,500
+Bring your ticket to the entrance.
+
+108
+00:05:22,000 --> 00:05:24,500
+The doors close after the signal.
+
+109
+00:05:25,000 --> 00:05:27,500
+The tram leaves from the square.
+
+110
+00:05:28,000 --> 00:05:30,500
+Please keep the aisle clear.
+
+111
+00:05:31,000 --> 00:05:33,500
+The next stop is the riverside.
+
+112
+00:05:34,000 --> 00:05:36,500
+Our guide will meet us there.
+
+113
+00:05:37,000 --> 00:05:39,500
+Bring your ticket to the entrance.
+
+114
+00:05:40,000 --> 00:05:42,500
+The doors close after the signal.
+
+115
+00:05:43,000 --> 00:05:45,500
+The tram leaves from the square.
+
+116
+00:05:46,000 --> 00:05:48,500
+Please keep the aisle clear.
+
+117
+00:05:49,000 --> 00:05:51,500
+The next stop is the riverside.
+
+118
+00:05:52,000 --> 00:05:54,500
+Our guide will meet us there.
+
+119
+00:05:55,000 --> 00:05:57,500
+Bring your ticket to the entrance.
+
+120
+00:05:58,000 --> 00:06:00,500
+The doors close after the signal.
+
+121
+00:06:01,000 --> 00:06:03,500
+The tram leaves from the square.
+
+122
+00:06:04,000 --> 00:06:06,500
+Please keep the aisle clear.
+
+123
+00:06:07,000 --> 00:06:09,500
+The next stop is the riverside.
+
+124
+00:06:10,000 --> 00:06:12,500
+Our guide will meet us there.
+
+125
+00:06:13,000 --> 00:06:15,500
+Bring your ticket to the entrance.
+
+126
+00:06:16,000 --> 00:06:18,500
+The doors close after the signal.
+
+127
+00:06:19,000 --> 00:06:21,500
+The tram leaves from the square.
+
+128
+00:06:22,000 --> 00:06:24,500
+Please keep the aisle clear.
+
+129
+00:06:25,000 --> 00:06:27,500
+The next stop is the riverside.
+
+130
+00:06:28,000 --> 00:06:30,500
+Our guide will meet us there.
+
+131
+00:06:31,000 --> 00:06:33,500
+Bring your ticket to the entrance.
+
+132
+00:06:34,000 --> 00:06:36,500
+The doors close after the signal.
+
+133
+00:06:37,000 --> 00:06:39,500
+The tram leaves from the square.
+
+134
+00:06:40,000 --> 00:06:42,500
+Please keep the aisle clear.
+
+135
+00:06:43,000 --> 00:06:45,500
+The next stop is the riverside.
+
+136
+00:06:46,000 --> 00:06:48,500
+Our guide will meet us there.
+
+137
+00:06:49,000 --> 00:06:51,500
+Bring your ticket to the entrance.
+
+138
+00:06:52,000 --> 00:06:54,500
+The doors close after the signal.
+
+139
+00:06:55,000 --> 00:06:57,500
+The tram leaves from the square.
+
+140
+00:06:58,000 --> 00:07:00,500
+Please keep the aisle clear.
+

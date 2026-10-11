@@ -1,0 +1,18 @@
+{
+  "synthetic": true,
+  "browser": "156.0.8078.4",
+  "frames": [
+    "01-import.png",
+    "02-merge.png",
+    "03-unmatched.png",
+    "04-number.png",
+    "05-export.png"
+  ],
+  "flow": [
+    "import 240/239",
+    "accept legal merge",
+    "show unmatched interval",
+    "show 100→1000",
+    "export report"
+  ]
+}

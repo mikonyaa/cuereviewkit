@@ -1,0 +1,25 @@
+{
+  "groups": [
+    {
+      "type": "n:1",
+      "sourceOrdinals": [
+        0,
+        1
+      ],
+      "translationOrdinals": [
+        0
+      ]
+    },
+    {
+      "type": "unmatched",
+      "sourceOrdinals": [
+        2
+      ],
+      "translationOrdinals": []
+    }
+  ],
+  "rules": [
+    "number-difference",
+    "uncovered-interval"
+  ]
+}

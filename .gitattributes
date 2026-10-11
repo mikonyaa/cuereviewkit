@@ -1,0 +1,6 @@
+# Subtitle fixtures are byte-level test data; never normalize their line endings.
+*.srt -text -diff
+*.vtt -text -diff
+*.zip binary
+*.png binary
+*.webm binary

@@ -1,0 +1,43 @@
+{
+  "groups": [
+    {
+      "type": "n:1",
+      "sourceOrdinals": [
+        0,
+        1
+      ],
+      "translationOrdinals": [
+        0
+      ]
+    },
+    {
+      "type": "unmatched",
+      "sourceOrdinals": [
+        2
+      ],
+      "translationOrdinals": []
+    }
+  ],
+  "findings": [
+    {
+      "rule": "reading-speed",
+      "evidence": "29.0 CPS; 29 graphemes / 1.000 s"
+    },
+    {
+      "rule": "reading-speed",
+      "evidence": "35.0 CPS; 35 graphemes / 1.000 s"
+    },
+    {
+      "rule": "reading-speed",
+      "evidence": "29.0 CPS; 29 graphemes / 1.000 s"
+    },
+    {
+      "rule": "reading-speed",
+      "evidence": "30.5 CPS; 61 graphemes / 2.000 s"
+    },
+    {
+      "rule": "uncovered-interval",
+      "evidence": "0 / 1000 ms covered"
+    }
+  ]
+}

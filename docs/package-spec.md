@@ -1,0 +1,15 @@
+# Review package schema 1
+
+The `.cue-review.zip` archive contains exactly six files: `manifest.json`, `originals/source.srt` or `.vtt`, `originals/translation.srt` or `.vtt`, `working/translation.srt` or `.vtt`, `review.json`, and `report.html`. There are no directory entries, nested archives, videos or URLs to load. Names are fixed paths; original filenames are metadata only.
+
+Manifest: `schemaVersion: 1`, `creatorVersion`, original filenames, exact `sourcePath`, `translationPath`, `workingPath`, and `files: [{path, bytes, sha256}]`. The five payloads are hashed; the manifest has no self-referential hash. Working extension matches the translation original. All lengths refer to actual byte arrays. SHA-256 is a corruption/integrity check within this archive, not an author signature.
+
+Review JSON: `schemaVersion`, `originals` (two byte hashes), `alignmentVersion: time-graph/1`, `ruleVersion: mechanical/1`, `logicalIds` for both tracks, `edits`, nullable explicit `manualMapping`, `config`, `decisions`, `history`, `revision`. Source cues are never edited. Cue ID = role + full original byte SHA-256 + original zero-based ordinal. Edited working cues keep those original IDs. Content hashes include ID, integer milliseconds, text, number/identifier fields. SRT display numbers are not identity.
+
+An edit is `{id,startMs,endMs,text}`. A mapping group is `{source:[ids],translation:[ids],provenance:'manual'}`; full accounting and single membership are mandatory. A decision is `{subject,subjectHash,reviewRevision,status,comment,reviewer,at}`. `accepted` applies to a group; `waived` to a warning; `needs-change` to either. Data changes invalidate all preceding decisions conservatively. Imported decisions apply only if their subject and revision dependencies match recomputed hashes. Saved-revision mismatch is a visible conflict and produces stale decisions.
+
+Importer validates compressed size before reading, a single ZIP volume, central/local header agreement, names, methods (stored/deflate), CRC, symlink metadata, entry count, ratio and actual streaming decompression limits. Chunks are bounded and no filesystem extraction occurs in the app. ZIP64 and data-descriptor/encrypted entries are unsupported. JSON has byte, depth and node limits and forbids prototype-related keys. Unknown schema/engine versions are unsupported. Original base hashes, IDs and serialized working bytes must match the strictly reparsed originals plus edit contract. Partial input cannot silently become a supported corrected document.
+
+Imported `report.html` is checked as a payload but **never read into an executable DOM, iframe or authoritative UI**. A fresh report is rendered from verified subtitle/review data with HTML escaping and a restrictive CSP. Report text, filenames and comments remain inert. A hostile checksum-valid report fixture is exercised by unit and browser tests.
+
+Limits and exact format subset are in the README. Very compressible legitimate exports use stored ZIP entries to remain acceptable under the ratio limit. Session recovery does not depend on the importing machine's IndexedDB. No automatic merge of divergent histories is attempted.

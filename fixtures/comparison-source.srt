@@ -1,0 +1,12 @@
+1
+00:00:01,000 --> 00:00:02,000
+Please take the morning tram.
+
+2
+00:00:02,000 --> 00:00:03,000
+Bring exactly 100 tickets with you.
+
+3
+00:00:05,000 --> 00:00:06,000
+Meet us at the main entrance.
+

@@ -1,0 +1,35 @@
+{
+  "sourceCount": 240,
+  "translationCount": 239,
+  "merge": {
+    "sourceOrdinals": [
+      4,
+      5
+    ],
+    "translationOrdinals": [
+      4
+    ]
+  },
+  "split": {
+    "sourceOrdinals": [
+      8
+    ],
+    "translationOrdinals": [
+      7,
+      8
+    ]
+  },
+  "unmatchedSourceOrdinals": [
+    12
+  ],
+  "numericDifference": {
+    "sourceOrdinal": 20,
+    "sourceTokens": [
+      "100"
+    ],
+    "translationTokens": [
+      "1000"
+    ]
+  },
+  "synthetic": true
+}
