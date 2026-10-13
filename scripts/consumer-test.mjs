@@ -175,6 +175,14 @@ try {
   );
   const clean = await browser.newContext(),
     reopened = await clean.newPage();
+  reopened.on("pageerror", (e) => errors.push(e.message));
+  clean.on("request", (r) => {
+    if (
+      (!r.url().startsWith(url) && !r.url().startsWith("file:")) ||
+      r.method() !== "GET"
+    )
+      externalRequests.push(`${r.method()} ${r.url()}`);
+  });
   await reopened.goto(url);
   await reopened
     .getByLabel("Open review package", { exact: true })
@@ -229,7 +237,16 @@ try {
     reasoning,
   );
   await clean.setOffline(true);
+  assert.equal(
+    await reopened
+      .locator(".decision-editor")
+      .first()
+      .getByRole("textbox", { name: /Reviewer name/ })
+      .inputValue(),
+    reviewer,
+  );
   const reportPage = await clean.newPage();
+  reportPage.on("pageerror", (e) => errors.push(e.message));
   await reportPage.goto("file://" + reportFile);
   assert.equal(
     await reportPage
