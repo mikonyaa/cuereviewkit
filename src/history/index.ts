@@ -14,6 +14,9 @@ export class UndoHistory {
   pop() {
     return this.stack.pop();
   }
+  peek() {
+    return this.stack.at(-1);
+  }
   get size() {
     return this.stack.length;
   }

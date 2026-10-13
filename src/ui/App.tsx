@@ -4,6 +4,7 @@ import {
   useRef,
   useState,
   useSyncExternalStore,
+  type Ref,
 } from "react";
 import { store } from "./store";
 import {
@@ -38,6 +39,14 @@ function status(session: Session, subject: string) {
 }
 function nextIndex(index: number, length: number) {
   return (index + 1) % Math.max(1, length);
+}
+function useBoundedPage(count: number) {
+  const [requested, setPage] = useState(0);
+  const page = Math.min(requested, Math.max(0, Math.ceil(count / 50) - 1));
+  useEffect(() => {
+    if (requested !== page) setPage(page);
+  }, [requested, page]);
+  return [page, setPage] as const;
 }
 function CueBlock({
   cue,
@@ -91,7 +100,7 @@ function CueTrack({
   onEdit: (cue: Cue) => void;
   busy: boolean;
 }) {
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useBoundedPage(cues.length);
   const pageSize = 50;
   return (
     <section>
@@ -305,11 +314,13 @@ function DecisionEditor({
   session,
   warning = false,
   disabled = false,
+  acceptRef,
 }: {
   subject: string;
   session: Session;
   warning?: boolean;
   disabled?: boolean;
+  acceptRef?: Ref<HTMLButtonElement>;
 }) {
   const old = decisionFor(session, subject),
     [comment, setComment] = useState(old?.comment ?? ""),
@@ -353,6 +364,7 @@ function DecisionEditor({
       </label>
       <div className="actions">
         <button
+          ref={acceptRef}
           className="primary"
           disabled={disabled}
           onClick={() =>
@@ -537,14 +549,16 @@ function FindingsPanel({
   session,
   findings,
   busy,
+  acceptRef,
 }: {
   group: Group;
   session: Session;
   findings: Finding[];
   busy: boolean;
+  acceptRef: Ref<HTMLButtonElement>;
 }) {
-  const [selected, setSelected] = useState<string | null>(null),
-    [page, setPage] = useState(0);
+  const [selected, setSelected] = useState<string | null>(null);
+  const [page, setPage] = useBoundedPage(findings.length);
   const finding = findings.find((f) => f.id === selected);
   return (
     <aside className="inspector" aria-label="Review evidence">
@@ -561,6 +575,7 @@ function FindingsPanel({
           subject={group.id}
           session={session}
           disabled={busy || session.analysis.alignment.incomplete}
+          acceptRef={acceptRef}
         />
         <div className="findings-section">
           <div className="section-heading">
@@ -661,10 +676,11 @@ export function App() {
     [rules, setRules] = useState(false),
     [importing, setImporting] = useState(false),
     [exporting, setExporting] = useState(false),
-    [checks, setChecks] = useState<Set<string>>(new Set()),
-    [listPage, setListPage] = useState(0);
+    [checks, setChecks] = useState<Set<string>>(new Set());
   const currentRow = useRef<HTMLButtonElement | null>(null);
+  const focusQueue = useRef(false);
   const searchRef = useRef<HTMLInputElement | null>(null);
+  const acceptRef = useRef<HTMLButtonElement | null>(null);
   useEffect(() => {
     void store.init();
   }, []);
@@ -735,7 +751,11 @@ export function App() {
       );
     });
   }, [session, maps, filter, query, findingMap]);
-  const group = groups.find((g) => g.id === selected) ?? groups[0];
+  const [listPage, setListPage] = useBoundedPage(groups.length);
+  const visibleGroups = groups.slice(listPage * 50, listPage * 50 + 50);
+  const group =
+    visibleGroups.find((g) => g.id === selected) ?? visibleGroups[0];
+  const authoringKey = `${state.sessionEpoch}:${session?.analysis.revision}`;
   const findings = group ? (findingMap.get(group.id) ?? []) : [];
   const coverage = useMemo(() => {
     const result = new Map<string, number>();
@@ -759,10 +779,18 @@ export function App() {
   }, [group, maps]);
   useEffect(() => {
     setListPage(0);
-  }, [filter, query]);
+    setSelected(null);
+    setChecks(new Set());
+  }, [filter, query, state.sessionEpoch, setListPage]);
   useEffect(() => {
-    if (group) currentRow.current?.scrollIntoView({ block: "nearest" });
-  }, [group?.id]);
+    if (group) {
+      currentRow.current?.scrollIntoView({ block: "nearest" });
+      if (focusQueue.current) {
+        currentRow.current?.focus();
+        focusQueue.current = false;
+      }
+    }
+  }, [group?.id, listPage, state.sessionEpoch]);
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const target = e.target as HTMLElement;
@@ -787,6 +815,7 @@ export function App() {
         const i = groups.findIndex((g) => g.id === group?.id);
         const next = groups[nextIndex(i, groups.length)];
         if (next) {
+          focusQueue.current = true;
           setSelected(next.id);
           setListPage(Math.floor(nextIndex(i, groups.length) / 50));
         }
@@ -796,12 +825,15 @@ export function App() {
         const i = groups.findIndex((g) => g.id === group?.id),
           n = (i - 1 + groups.length) % groups.length;
         if (groups[n]) {
+          focusQueue.current = true;
           setSelected(groups[n].id);
           setListPage(Math.floor(n / 50));
         }
       }
-      if (e.key === "a" && session && group && !state.busy)
-        store.decide(group.id, "accepted", "", "");
+      if (e.key === "a" && session && group && !state.busy) {
+        e.preventDefault();
+        acceptRef.current?.click();
+      }
       if (
         e.key === "e" &&
         session &&
@@ -1210,6 +1242,7 @@ export function App() {
                   onClick={() => {
                     const i = groups.findIndex((g) => g.id === group?.id),
                       n = nextIndex(i, groups.length);
+                    focusQueue.current = true;
                     setSelected(groups[n].id);
                     setListPage(Math.floor(n / 50));
                   }}
@@ -1241,7 +1274,7 @@ export function App() {
                 </button>
               </div>
               <div className="group-list" aria-label="Temporal groups">
-                {groups.slice(listPage * 50, listPage * 50 + 50).map((g) => (
+                {visibleGroups.map((g) => (
                   <div
                     key={g.id}
                     className={`group-row ${group?.id === g.id ? "current" : ""}`}
@@ -1308,7 +1341,11 @@ export function App() {
                 <div className="pagination">
                   <button
                     disabled={listPage === 0}
-                    onClick={() => setListPage((p) => p - 1)}
+                    onClick={() => {
+                      focusQueue.current = true;
+                      setSelected(null);
+                      setListPage((p) => p - 1);
+                    }}
                   >
                     Previous 50
                   </button>
@@ -1317,7 +1354,11 @@ export function App() {
                   </small>
                   <button
                     disabled={(listPage + 1) * 50 >= groups.length}
-                    onClick={() => setListPage((p) => p + 1)}
+                    onClick={() => {
+                      focusQueue.current = true;
+                      setSelected(null);
+                      setListPage((p) => p + 1);
+                    }}
                   >
                     Next 50
                   </button>
@@ -1347,7 +1388,7 @@ export function App() {
                   )}
                   <div className="bilingual-columns">
                     <CueTrack
-                      key={group.id + "source"}
+                      key={`${authoringKey}:${group.id}:source`}
                       cues={group.source.map((id) => maps.source.get(id)!)}
                       role="source"
                       session={session}
@@ -1356,7 +1397,7 @@ export function App() {
                       busy={state.busy}
                     />
                     <CueTrack
-                      key={group.id + "translation"}
+                      key={`${authoringKey}:${group.id}:translation`}
                       cues={group.translation.map((id) =>
                         maps.translation.get(id)!,
                       )}
@@ -1372,11 +1413,12 @@ export function App() {
             </section>
             {group && (
               <FindingsPanel
-                key={group.id}
+                key={`${authoringKey}:${group.id}`}
                 group={group}
                 session={session}
                 findings={findings}
                 busy={state.busy}
+                acceptRef={acceptRef}
               />
             )}
           </div>
@@ -1431,6 +1473,7 @@ export function App() {
             </button>
             <ImportPanel
               onDone={() => {
+                focusQueue.current = true;
                 setImporting(false);
                 switchFilter("all");
               }}
@@ -1498,6 +1541,7 @@ export function App() {
               <button
                 className="primary"
                 onClick={() => {
+                  focusQueue.current = true;
                   store.confirmPackage();
                   switchFilter("all");
                 }}

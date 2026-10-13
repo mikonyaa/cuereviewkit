@@ -68,6 +68,14 @@ ZIP traversal, absolute paths, duplicate names, nested archives, encryption, sym
 
 `j` / `k`: next / previous group. `n`: next in the current queue (choose **Unresolved** first). `e`: edit the first translated cue. `a`: accept the current group. `u`: undo. `/`: search. Keys are disabled in input fields and dialogs. Tab/Shift+Tab stay inside a dialog; Escape closes it while idle. Source cues remain read only.
 
+**Acceptance and drafts:** `a` activates the same Accept button and saves the current group's visible comment/reviewer draft. Repeating acceptance preserves these fields; deliberately clearing them and accepting saves empty strings. Warning waivers and **Needs change** remain separate commands. A command that omits a field preserves its latest saved value; an explicitly empty field clears it.
+
+Unapplied decision drafts belong to the current material, subject and data revision. Moving to another group discards an unapplied draft; returning loads the last recorded decision. Import, track replacement, package open and recovery restore start a fresh editor identity, even when IDs/revision repeat. A semantic revision reloads saved reasoning as visibly stale context for explicit re-review. Ordinary rerenders, autosave and export do not clear the current draft. Drafts are never silently written to a package or recovery.
+
+**Undo and queue:** cancellation or worker failure preserves the Undo snapshot for retry. Only a successful current calculation consumes it; a late response cannot remove a newer operation's history. Import/restore resets queue selection and pages. Shrinking a filtered/mapped queue clamps its page, and keyboard navigation focuses the active visible row. Cue and finding pages stay bounded at 50 items each. A genuine empty filter displays an explicit empty-state message.
+
+[Local review-state fix evidence](docs/review-state.md) records the new regressions, tool versions, measured budgets and remaining external gates.
+
 Chromium, Firefox and Playwright WebKit pass the same real browser flows on macOS. WebKit testing is **not a real Safari-device test**. 1440, 1024 and 390 px viewports, RTL/CJK, long text, unsupported formats and empty pairs are exercised. Exact tested versions and measured performance are in [QA evidence](docs/qa.md). No iPhone/Android physical-device validation or external translator pilot is claimed.
 
 ## Offline start

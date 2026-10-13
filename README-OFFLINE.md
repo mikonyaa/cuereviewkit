@@ -2,6 +2,10 @@
 
 Review source and translated subtitles before delivery.
 
+Acceptance (`a`) uses the same current comment/reviewer draft as the Accept button. Clearing those fields and accepting deliberately saves empty values. Unapplied decision drafts are discarded on group navigation, material/package replacement and semantic revision; returning loads saved reasoning, marked stale when appropriate. Drafts are not recovery snapshots.
+
+Cancel or a worker error keeps the Undo snapshot available for retry. Import/restore resets the queue, and shrinking queues and nested cue/finding views stay within their 50-item pages.
+
 Unpack the ZIP. With Node.js 24 LTS installed, run from the unpacked folder:
 
 ```sh
