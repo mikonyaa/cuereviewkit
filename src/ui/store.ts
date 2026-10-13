@@ -6,7 +6,7 @@ import {
   type Role,
   type DecisionStatus,
 } from "../review/types";
-import { addDecision } from "../review/engine";
+import { addDecision, decisionFor } from "../review/engine";
 import { UndoHistory, withHistory } from "../history";
 import { loadRecovery, saveRecovery } from "../storage";
 export interface State {
@@ -24,6 +24,7 @@ export interface State {
   } | null;
   generation: number;
   undoCount: number;
+  sessionEpoch: number;
 }
 export class ReviewStore {
   private state: State = {
@@ -37,6 +38,7 @@ export class ReviewStore {
     packagePreview: null,
     generation: 0,
     undoCount: 0,
+    sessionEpoch: 0,
   };
   private listeners = new Set<() => void>();
   readonly client = new EngineClient();
@@ -124,8 +126,12 @@ export class ReviewStore {
     }
     this.saveRunning = false;
   }
-  private commit(session: Session) {
-    this.update({ session, undoCount: this.undo.size });
+  private commit(session: Session, replacement = false) {
+    this.update({
+      session,
+      undoCount: this.undo.size,
+      sessionEpoch: this.state.sessionEpoch + (replacement ? 1 : 0),
+    });
     this.persist(session);
   }
   cancel() {
@@ -165,7 +171,7 @@ export class ReviewStore {
       );
       if (generation !== this.state.generation) return;
       this.undo.clear();
-      this.commit(session);
+      this.commit(session, true);
       this.update({
         message: "Original pair imported. Review decisions are unresolved.",
         recovery: null,
@@ -200,7 +206,7 @@ export class ReviewStore {
       );
       if (generation !== this.state.generation) return;
       this.undo.clear();
-      this.commit(session);
+      this.commit(session, true);
       this.update({
         message:
           "Synthetic tram-guide example: 240 source / 239 translation cues.",
@@ -272,6 +278,7 @@ export class ReviewStore {
       this.undo.push(session);
       this.commit(
         withHistory({ ...input, analysis }, `Replaced ${role} track`),
+        true,
       );
       this.update({
         message:
@@ -280,12 +287,14 @@ export class ReviewStore {
     });
   }
   async undoEdit() {
-    const input = this.undo.pop(),
+    const input = this.undo.peek(),
       session = this.state.session;
     if (!input || !session) return;
     await this.task(async (generation) => {
       const analysis = await this.client.run("analyze", input, generation);
-      if (generation !== this.state.generation) return;
+      if (generation !== this.state.generation || this.undo.peek() !== input)
+        return;
+      this.undo.pop();
       this.commit(
         withHistory(
           { ...session, ...input, analysis },
@@ -300,13 +309,20 @@ export class ReviewStore {
   decide(
     subject: string,
     status: DecisionStatus,
-    comment: string,
-    reviewer: string,
+    comment?: string,
+    reviewer?: string,
   ) {
     if (!this.state.session || this.state.busy) return;
     try {
+      const previous = decisionFor(this.state.session, subject);
       this.commit(
-        addDecision(this.state.session, subject, status, comment, reviewer),
+        addDecision(
+          this.state.session,
+          subject,
+          status,
+          comment ?? previous?.comment ?? "",
+          reviewer ?? previous?.reviewer ?? "",
+        ),
       );
       this.update({
         message: "Decision recorded for this revision.",
@@ -335,7 +351,7 @@ export class ReviewStore {
     const p = this.state.packagePreview;
     if (!p) return;
     this.undo.clear();
-    this.commit(p.session);
+    this.commit(p.session, true);
     this.update({
       packagePreview: null,
       recovery: null,
@@ -354,7 +370,7 @@ export class ReviewStore {
       const restored = await this.client.run("recovery", session, generation);
       if (generation !== this.state.generation) return;
       this.undo.clear();
-      this.commit(restored);
+      this.commit(restored, true);
       this.update({
         recovery: null,
         message: "Recovery revalidated and restored.",
